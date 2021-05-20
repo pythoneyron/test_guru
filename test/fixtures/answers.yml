@@ -2,8 +2,8 @@
 
 one:
   text: MyString
-  correct: MyString
+  correct:
 
 two:
   text: MyString
-  correct: MyString
+  correct:
