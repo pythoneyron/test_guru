@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_142628) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_users_tests_on_test_id"
-    t.index ["user_id", "test_id"], name: "index_users_tests_on_user_id_and_test_id", unique: true
     t.index ["user_id"], name: "index_users_tests_on_user_id"
   end
 
