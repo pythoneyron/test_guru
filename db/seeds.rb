@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-kratos = User.create({ first_name: 'Kratos', last_name: '', is_author: true })
-smith = User.create({ first_name: 'John', last_name: 'Smith', is_author: true })
+kratos = User.create({ first_name: 'Kratos', last_name: '' })
+smith = User.create({ first_name: 'John', last_name: 'Smith' })
 
 users = User.create(
   [{ first_name: 'Вася', last_name: 'Пупкин' },
