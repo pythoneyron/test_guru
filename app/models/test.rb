@@ -15,4 +15,8 @@ class Test < ApplicationRecord
     joins(:category).where(categories: { title: category })
                     .order(id: :desc).pluck('tests.title')
   }
+
+  validates :title, presence: true
+  validates :level, numericality: { greater_than_or_equal_to: 1 }
+  validates_uniqueness_of :title, scope: :level
 end

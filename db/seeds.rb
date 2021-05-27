@@ -42,7 +42,12 @@ Answer.create(
    { text: 'Правильный ответ: Python', question_id: questions[1].id },
    { text: 'Правильный ответ: JavaScript', question_id: questions[2].id, correct: true },
    { text: 'Правильный ответ: Python', question_id: questions[3].id, correct: true },
-   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id }]
+   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
+   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
+   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
+   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
+   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
+  ]
 )
 
 UsersTest.create([
