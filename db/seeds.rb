@@ -38,10 +38,10 @@ questions = Question.create(
 )
 
 Answer.create(
-  [{ text: 'Правильный ответ: Ruby', question_id: questions[0].id },
+  [{ text: 'Правильный ответ: Ruby', question_id: questions[0].id, correct: true },
    { text: 'Правильный ответ: Python', question_id: questions[1].id },
-   { text: 'Правильный ответ: JavaScript', question_id: questions[2].id },
-   { text: 'Правильный ответ: Python', question_id: questions[3].id },
+   { text: 'Правильный ответ: JavaScript', question_id: questions[2].id, correct: true },
+   { text: 'Правильный ответ: Python', question_id: questions[3].id, correct: true },
    { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id }]
 )
 
