@@ -47,8 +47,15 @@ Answer.create(
    { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
    { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
    { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
+   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
+   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
   ]
 )
+
+a = Answer.last
+puts a.valid?
+puts a.errors.full_messages
+
 
 UsersTest.create([
     { user_id: users[0].id, test_id: tests[0].id },
