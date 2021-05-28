@@ -16,7 +16,6 @@ class Test < ApplicationRecord
 
   scope :by_level, ->(level) { where(level: level) }
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { greater_than_or_equal_to: 1 }
-  validates :title, uniqueness: { scope: :level }
 end
