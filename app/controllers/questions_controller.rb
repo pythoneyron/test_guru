@@ -1,30 +1,32 @@
 class QuestionsController < ApplicationController
 
   before_action :find_question, only: %i[show]
+  before_action :find_test, only: %i[index create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @questions = Question.where(test_id: params[:test_id])
+    @questions = @test.questions
   end
 
   def show
     render plain: @question.inspect
   end
 
-  def show_all
-    render plain: Question.all.inspect
-  end
-
   def create
-    question = Question.create(question_param)
-    redirect_to question
+    question = @test.questions.new(questions_params)
+
+    if question.save
+      redirect_to question
+    else
+      render plain: 'Вопрос не создан!'
+    end
   end
 
   def destroy
-    question = Question.find(params[:id])
+    question = find_question
     question.destroy
-    redirect_back(fallback_location: index)
+    redirect_back(fallback_location: '/')
   end
 
   private
@@ -33,8 +35,12 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def question_param
-    params.require(:question).permit(:body, :test_id)
+  def find_test
+    @test = Test.find(params[:test_id])
+  end
+
+  def questions_params
+    params.require(:question).permit(:body)
   end
 
   def rescue_with_question_not_found

@@ -12,6 +12,16 @@ class TestsController < ApplicationController
     render plain: @test.inspect
   end
 
+  def create
+    test = Test.new(test_params)
+
+    if test.save
+      redirect_to test
+    else
+      render plain: "Тест не создан!\n #{test.errors.messages}"
+    end
+  end
+
   private
 
   def find_test
@@ -19,7 +29,7 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level)
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
   def rescue_with_test_not_found
