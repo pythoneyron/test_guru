@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_question, only: %i[show]
+  before_action :find_question, only: %i[show destroy]
   before_action :find_test, only: %i[index create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -24,8 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    question = find_question
-    question.destroy
+    @question.destroy
     redirect_back(fallback_location: '/')
   end
 
