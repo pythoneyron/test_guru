@@ -1,7 +1,7 @@
 <table>
   <thead>
   <tr>
-    <th>Title</th>
+    <th>Вопрос</th>
     <th>Test ID</th>
     <th colspan="3"></th>
   </tr>
@@ -10,11 +10,11 @@
   <tbody>
   <% @questions.each do |question| %>
     <tr>
-      <td><%= question.body %></td>
-      <td><%= question.test_id %></td>
-      <td><%= link_to "Show", question %></td>
-      <td><%= link_to "Edit", edit_question_path(question) %></td>
-      <td><%= link_to "Destroy", question, method: :delete, data: { confirm: "Ты серьезно?" } %></td>
+      <td class="title"><%= question.body %></td>
+      <td class="id"><%= question.test_id %></td>
+      <td class="functions"><%= link_to "Просмотреть", question %></td>
+      <td class="functions"><%= link_to "Редактировать", edit_question_path(question) %></td>
+      <td class="functions"><%= link_to "Удалить", question, method: :delete, data: { confirm: "Удалить вопрос?" } %></td>
     </tr>
   <% end %>
   </tbody>
