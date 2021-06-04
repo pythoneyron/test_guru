@@ -2,31 +2,8 @@
 <%= link_to "Создать тест", :new_test %>
 
 <table>
-  <thead>
-  <tr>
-    <th>Название</th>
-    <th>Категория</th>
-    <th>Автор</th>
-    <th>Уровень сложности</th>
-    <th>Количество вопросов</th>
-    <th colspan="3">Функции</th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @tests.each do |test| %>
-    <tr>
-      <td class="title"><%= test.title %></td>
-      <td class="id"><%= test.category_id %></td>
-      <td class="id"><%= test.author_id %></td>
-      <td class="id"><%= test.level %></td>
-      <td class="id"><%= test.questions.count %></td>
-      <td class="functions"><%= link_to "Показать", test %></td>
-      <td class="functions"><%= link_to "Редактировать", edit_test_path(test) %></td>
-      <td class="functions"><%= link_to "Удалить", test, method: :delete, data: { confirm: "Удалить тест?" } %></td>
-    </tr>
-  <% end %>
-  </tbody>
+  <%= render 'table' %>
+  <%= render @tests %>
 </table>
 
 <%= link_to "<-- Назад", :root %>

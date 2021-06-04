@@ -9,17 +9,21 @@ class QuestionsController < ApplicationController
     @questions = @test.questions
   end
 
-  def show
-    render plain: @question.inspect
+  def new
+    @question = Question.new(test_id: params[:test_id])
+  end
+
+  def edit
+    @question = Question.find(params[:id])
   end
 
   def create
-    question = @test.questions.new(questions_params)
+    @question = @test.questions.new(questions_params)
 
-    if question.save
-      redirect_to question
+    if @question.save
+      redirect_to @question
     else
-      render plain: 'Вопрос не создан!'
+      render new
     end
   end
 

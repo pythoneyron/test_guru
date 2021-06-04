@@ -1,0 +1,10 @@
+<tr>
+  <td class="title"><%= test.title %></td>
+  <td class="id"><%= test.category_id %></td>
+  <td class="id"><%= test.author_id %></td>
+  <td class="id"><%= test.level %></td>
+  <td class="id"><%= test.questions.count %></td>
+  <td class="functions"><%= link_to "Показать", test %></td>
+  <td class="functions"><%= link_to "Редактировать", edit_test_path(test) %></td>
+  <td class="functions"><%= link_to "Удалить", test, method: :delete, data: { confirm: "Удалить тест?" } %></td>
+</tr>

@@ -1,24 +1,10 @@
 <h1>Тест: <%= @test.title %></h1>
 <%= link_to "Создать тест", :new_test %>
+<%= link_to "Создать вопрос", new_test_question_path(@test.id) %>
 
 <table>
-  <thead>
-  <tr>
-    <th>Название</th>
-    <th>Уровень</th>
-    <th>Категория</th>
-    <th>Автор</th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <tr>
-    <td class="body"><%= @test.title %></td>
-    <td class="id"><%= @test.level %></td>
-    <td class="id"><%= @test.category_id %></td>
-    <td class="id"><%= @test.author_id %></td>
-  </tr>
-  </tbody>
+  <%= render 'table' %>
+  <%= render @test %>
 </table>
 
 <br>
