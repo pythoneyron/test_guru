@@ -18,17 +18,7 @@
   </tr>
   </thead>
 
-  <tbody>
-  <% @test.questions.each do |question| %>
-    <tr>
-      <td class="body"><%= question.body %></td>
-      <td class="id"><%= question.test_id %></td>
-      <td class="functions"><%= link_to "Показать", question %></td>
-      <td class="functions"><%= link_to "Редактировать", edit_question_path(question) %></td>
-      <td class="functions"><%= link_to "Удалить", question, method: :delete, data: { confirm: "Удалить вопрос?" } %></td>
-    </tr>
-  <% end %>
-  </tbody>
+  <%= render @test.questions %>
 </table>
 
 <%= link_to "<-- Назад", :tests %>

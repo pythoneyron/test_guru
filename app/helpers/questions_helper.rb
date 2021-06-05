@@ -6,12 +6,4 @@ module QuestionsHelper
       'Редактировать вопрос'
     end
   end
-
-  def this_year
-    Date.today.year
-  end
-
-  def github_url(author, repo)
-    "https://github.com/#{author}/#{repo}"
-  end
 end
