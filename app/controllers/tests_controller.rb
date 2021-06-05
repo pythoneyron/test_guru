@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: %i[show destroy]
+  before_action :find_test, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -18,12 +18,16 @@ class TestsController < ApplicationController
     end
   end
 
-  def new
-    @test = Test.new
+  def update
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :new
+    end
   end
 
-  def edit
-    @test = Test.find(params[:id])
+  def new
+    @test = Test.new
   end
 
   def destroy
