@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: %i[show]
+  before_action :find_test, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -8,18 +8,31 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def show
-    render plain: @test.inspect
+  def create
+    @test = Test.new(test_params)
+
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
   end
 
-  def create
-    test = Test.new(test_params)
-
-    if test.save
-      redirect_to test
+  def update
+    if @test.update(test_params)
+      redirect_to @test
     else
-      render plain: "Тест не создан!\n #{test.errors.messages}"
+      render :new
     end
+  end
+
+  def new
+    @test = Test.new
+  end
+
+  def destroy
+    @test.destroy
+    redirect_to tests_path
   end
 
   private
