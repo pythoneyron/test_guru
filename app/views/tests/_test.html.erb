@@ -7,4 +7,5 @@
   <td class="functions"><%= link_to "Показать", test %></td>
   <td class="functions"><%= link_to "Редактировать", edit_test_path(test) %></td>
   <td class="functions"><%= link_to "Удалить", test, method: :delete, data: { confirm: "Удалить тест?" } %></td>
+  <td class="id"><%= button_to 'Начать тест', start_test_path(test) %></td>
 </tr>
