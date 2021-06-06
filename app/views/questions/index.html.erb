@@ -1,6 +1,11 @@
 <h1>Тест: <%= @test.title %></h1>
 
 <table>
-  <%= render 'table' %>
+  <tr>
+    <th>Вопрос</th>
+    <th>Test ID</th>
+    <th colspan="2">Функции</th>
+  </tr>
+
   <%= render @questions %>
 </table>

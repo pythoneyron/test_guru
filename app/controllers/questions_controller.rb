@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = @test.questions.new(test_id: params[:test_id])
+    @question = @test.questions.new
   end
 
   def create

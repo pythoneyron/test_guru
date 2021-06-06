@@ -32,7 +32,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_back(fallback_location: tests_path)
+    redirect_to tests_path
   end
 
   private

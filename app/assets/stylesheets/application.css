@@ -14,7 +14,6 @@
  *= require_self
  */
 
-<style type="text/css">
 TABLE {
     width: 1000px; /* Ширина таблицы */
     border-collapse: collapse; /* Убираем двойные линии между ячейками */
@@ -41,4 +40,3 @@ TD, TH {
 TH {
     background: #87CEEB; /* Цвет фона */
 }
-</style>
