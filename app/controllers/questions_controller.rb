@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_back(fallback_location: '/')
+    redirect_to question_path
   end
 
   private
