@@ -1,1 +1,12 @@
 <h1>Тест: <%= @test_passage.test.title %> был завершен!</h1>
+
+<h2>Результат теста:
+
+<% if percentage_result(@test_passage) >= 85 %>
+  <span style="color: green;"><%= percentage_result(@test_passage) %>%</span>
+<% else %>
+  <span style="color: red;"><%= percentage_result(@test_passage) %>%</span>
+<% end %>
+
+</h2>
+<%= link_to "Назад", :tests %>
