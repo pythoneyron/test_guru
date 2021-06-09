@@ -1,6 +1,5 @@
 <h1>Тест: <%= @test.title %></h1>
-<%= link_to "Создать тест", :new_test %>
-<%= link_to "Создать вопрос", new_test_question_path(@test.id) %>
+<%= link_to "Создать тест", new_test_path %>
 
 <table>
   <%= render 'table' %>
@@ -8,6 +7,10 @@
 </table>
 
 <br>
+
+<h2>Вопросы:</h2>
+
+<%= link_to "Создать вопрос", new_test_question_path(@test.id) %>
 
 <table>
   <thead>
@@ -21,4 +24,4 @@
   <%= render @test.questions %>
 </table>
 
-<%= link_to "<-- Назад", :tests %>
+<%= link_to "Назад", :tests %>

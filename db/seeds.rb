@@ -38,26 +38,24 @@ questions = Question.create(
 )
 
 Answer.create(
-  [{ text: 'Правильный ответ: Ruby', question_id: questions[0].id, correct: true },
-   { text: 'Правильный ответ: Python', question_id: questions[1].id },
-   { text: 'Правильный ответ: JavaScript', question_id: questions[2].id, correct: true },
-   { text: 'Правильный ответ: Python', question_id: questions[3].id, correct: true },
-   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
-   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
-   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
-   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
-   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
-   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
-   { text: 'Правильный ответ: Python, Java, C++', question_id: questions[4].id },
+  [{ text: 'Ruby', question_id: questions[0].id, correct: true },
+   { text: 'JavaScript', question_id: questions[0].id, correct: false },
+
+   { text: 'Python', question_id: questions[1].id, correct: true },
+   { text: 'C++', question_id: questions[1].id, correct: false },
+
+   { text: 'JavaScript', question_id: questions[2].id, correct: true },
+   { text: 'Ruby', question_id: questions[2].id, correct: false },
+
+   { text: 'Python', question_id: questions[3].id, correct: true },
+   { text: 'Java', question_id: questions[3].id, correct: false },
+
+   { text: 'Python, Java, C++', question_id: questions[4].id, correct: true },
+   { text: 'Ruby', question_id: questions[4].id, correct: false }
   ]
 )
 
-a = Answer.last
-puts a.valid?
-puts a.errors.full_messages
-
-
-UsersTest.create([
+TestPassage.create([
     { user_id: users[0].id, test_id: tests[0].id },
     { user_id: users[0].id, test_id: tests[1].id },
     { user_id: users[0].id, test_id: tests[3].id },
