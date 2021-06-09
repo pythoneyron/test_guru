@@ -1,4 +1,6 @@
 class TestPassage < ApplicationRecord
+  SUCCESS_RATE_PERCENT = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -22,6 +24,14 @@ class TestPassage < ApplicationRecord
     self.test.questions.where("id <= ?", current_question.id).count
   end
 
+  def percentage_result
+    100.0 / test.questions.count * correct_questions
+  end
+
+  def success?
+    percentage_result >= 85
+  end
+
   private
 
   def before_validation_set_first_question
@@ -29,10 +39,6 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    # correct_answers_count = correct_answers.count
-    #
-    # (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-    # correct_answers_count == answer_ids.count
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort if answer_ids
   end
 

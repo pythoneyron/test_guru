@@ -2,10 +2,10 @@
 
 <h2>Результат теста:
 
-<% if percentage_result(@test_passage) >= 85 %>
-  <span style="color: green;"><%= percentage_result(@test_passage) %>%</span>
+<% if @test_passage.success? %>
+  <span style="color: green;"><%= @test_passage.percentage_result %>%</span>
 <% else %>
-  <span style="color: red;"><%= percentage_result(@test_passage) %>%</span>
+  <span style="color: red;"><%= @test_passage.percentage_result %>%</span>
 <% end %>
 
 </h2>

@@ -43,7 +43,6 @@ class AnswersController < ApplicationController
     end
 
     def answer_params
-      params.require(:answer).permit(:text, :correct, :question_id)
-      # params.fetch(:answer, {})
+      params.require(:answer).permit(:text, :correct)
     end
 end
