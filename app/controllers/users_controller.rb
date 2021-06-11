@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_before_action :authenticate_user!
+
   extend ActiveSupport::Concern
 
   attr_reader :password
@@ -19,6 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to tests_path
     else
       render :new
