@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
+      cookies[:redirect_to] = request.referer
       redirect_to login_path, alert: 'Введите правильный логин и пароль.'
     end
 
