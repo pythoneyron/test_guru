@@ -6,8 +6,11 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :author_tests, class_name: 'Test', foreign_key: :author_id
 
-  validates :email, uniqueness: true
-  before_validation :before_validation_correct_email, on: :create
+  validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  validates :email, presence: true
+  validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
+  validates :password, confirmation: true
 
   has_secure_password
 
@@ -19,9 +22,4 @@ class User < ApplicationRecord
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 
-  private
-
-  def before_validation_correct_email
-    errors.add(:email, "Введите корректный email") unless email.include?('@')
-  end
 end

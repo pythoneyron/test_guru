@@ -10,6 +10,6 @@ class Answer < ApplicationRecord
   private
 
   def validate_answers_limit_on_question
-    errors.add('Answers on question too many') if question.answers.count >= ANSWERS_LIMIT_ON_QUESTION
+    errors.add('Answers on question too many') if question.answers.count >= ANSWERS_LIMIT_ON_QUESTION if question
   end
 end

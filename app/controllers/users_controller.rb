@@ -7,12 +7,6 @@ class UsersController < ApplicationController
   attr_reader :password
   attr_writer :password_confirmation
 
-  included do
-    validates :email, presence: true
-    validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
-    validates :password, confirmation: true
-  end
-
   def new
     @user = User.new
   end
