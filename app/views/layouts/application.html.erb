@@ -12,6 +12,12 @@
   </head>
 
   <body>
+    <%= render 'home/header' %>
+
+    <% if logged_in? %>
+    <p class="nav user">Добро пожаловать, <b><%= current_user.email %> Guru </b>| <%= link_to 'Выйти', logout_path %></p>
+    <% end %>
+
     <%= yield %>
 
     <%= render 'home/footer' %>

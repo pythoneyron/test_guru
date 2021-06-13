@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-kratos = User.create({ first_name: 'Kratos', last_name: '' })
-smith = User.create({ first_name: 'John', last_name: 'Smith' })
+kratos = User.create({ email: 'Kratos@mail.com', first_name: 'Kratos', last_name: '' })
+smith = User.create({ email: 'John@mail.com', first_name: 'John', last_name: 'Smith' })
 
 users = User.create(
-  [{ first_name: 'Вася', last_name: 'Пупкин' },
-   { first_name: 'Илон', last_name: 'Маск' },
-   { first_name: 'Юкихиро', last_name: 'Мацумото' }]
+  [{ email: 'Vasya@mail.com', first_name: 'Вася', last_name: 'Пупкин' },
+   { email: 'Elon@mail.com', first_name: 'Илон', last_name: 'Маск' },
+   { email: 'Matz@mail.com', first_name: 'Юкихиро', last_name: 'Мацумото' }]
 )
 
 categories = Category.create([{ title: 'Frontend' }, { title: 'Backend' },
