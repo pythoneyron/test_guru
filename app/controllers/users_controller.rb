@@ -4,9 +4,6 @@ class UsersController < ApplicationController
 
   extend ActiveSupport::Concern
 
-  attr_reader :password
-  attr_writer :password_confirmation
-
   def new
     @user = User.new
   end

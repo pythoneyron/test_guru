@@ -8,10 +8,6 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  validates :email, presence: true
-  validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
-  validates :password, confirmation: true
-
   has_secure_password
 
   def tests_by_level(level)
