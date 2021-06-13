@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to session[:redirect_to] ? session[:redirect_to] : tests_path
+      redirect_to cookies[:redirect_to] || tests_path
     else
       flash.now[:alert] = 'Введите правильный логин и пароль.'
       render :new
