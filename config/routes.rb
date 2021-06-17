@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   devise_for :users, path: :gurus, path_names: {sign_in: :login, sign_out: :logout},
-             controllers: { registrations: 'registrations' }
+             controllers: { registrations: 'registrations', sessions: 'sessions' }
 
   resources :tests, only: :index do
     resources :questions, shallow: true, except: :index do

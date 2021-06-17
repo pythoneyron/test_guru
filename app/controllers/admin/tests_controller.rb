@@ -10,7 +10,6 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.new(test_params)
-    @test.update(author_id: current_user.id)
 
     if @test.save
       redirect_to admin_test_path(@test)
@@ -36,11 +35,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to tests_path
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   private
 
   def find_test
@@ -48,7 +42,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :category_id).merge({author_id: current_user.id})
   end
 
   def rescue_with_test_not_found
