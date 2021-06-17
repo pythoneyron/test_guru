@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
 
   before_action :find_question, only: %i[show destroy edit update]
   before_action :find_test, only: %i[create new]
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to question_path
+    redirect_to admin_question_path
   end
 
   private

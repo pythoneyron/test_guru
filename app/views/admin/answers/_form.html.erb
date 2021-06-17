@@ -1,6 +1,5 @@
-<%= form_with model: [@question, @answer], local: true do |form| %>
+<%= form_with model: [:admin, @question, @answer], local: true do |form| %>
 
-<%#= form_with(model: answer) do |form| %>
   <%= render 'shared/errors', resource: @answer %>
 
   <p>

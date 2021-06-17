@@ -10,9 +10,9 @@
   <tr>
     <td class="title"><%= @answer.text %></td>
     <td class="title"><%= @answer.correct %></td>
-    <td class="functions"><%= link_to 'Редактировать', edit_answer_path(@answer) %></td>
+    <td class="functions"><%= link_to 'Редактировать', edit_admin_answer_path(@answer) %></td>
     <td class="functions"><%= link_to 'Удалить', @answer, method: :delete, data: {confirm: 'Удалить ответ?'}%></td>
   </tr>
 </table>
 
-<%= link_to 'Назад', question_path(@answer.question) %>
+<%= link_to 'Назад', admin_question_path(@answer.question) %>
