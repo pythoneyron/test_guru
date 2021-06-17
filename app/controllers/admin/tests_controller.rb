@@ -9,8 +9,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    test_obj = Test.includes(:author).where(author_id: current_user.id)
-    @test = test_obj.new(test_params)
+    @test = current_user.author_tests.build(test_params)
 
     if @test.save
       redirect_to admin_test_path(@test)
