@@ -14,9 +14,14 @@
   <body>
     <%= render 'home/header' %>
 
-    <% if logged_in? %>
-    <p class="nav user">Добро пожаловать, <b><%= current_user.email %> Guru </b>| <%= link_to 'Выйти', logout_path %></p>
+    <% if user_signed_in? %>
+      <p class="nav user">
+        Добро пожаловать, <b><%= current_user.email %></b> Guru |
+        <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+      </p>
     <% end %>
+
+    <%= render 'shared/flash' %>
 
     <%= yield %>
 

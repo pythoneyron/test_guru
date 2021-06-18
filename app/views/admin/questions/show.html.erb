@@ -1,0 +1,29 @@
+<h1><%= @question.test.title %> Вопрос </h1>
+
+<table>
+  <tr>
+    <th>Вопрос</th>
+    <th>Test ID</th>
+    <th colspan="3">Функции</th>
+  </tr>
+
+  <%= render @question %>
+</table>
+
+<br>
+
+<h2>Ответы на вопрос: <%= @question.body %></h2>
+
+<%= link_to 'Создать новый ответ', new_question_answer_path(@question) %>
+
+<table>
+  <tr>
+    <th>Ответ</th>
+    <th>Правильный</th>
+    <th colspan="3">Функции</th>
+  </tr>
+
+  <%= render @question.answers %>
+</table>
+
+<%= link_to 'Назад', admin_test_path(@question.test) %>
