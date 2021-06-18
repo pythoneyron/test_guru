@@ -12,9 +12,22 @@ ru:
         level: "Уровень"
         category_id: "Категория"
 
+  shared:
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка"
+        few: "Обнаружено %{count} ошибки"
+        other: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+
+
   tests:
     index:
       header: "Доступные Тесты"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
 
   admin:
     tests:
@@ -22,3 +35,7 @@ ru:
         success: "Тест успешно создан."
       index:
         header: "Доступные Тесты"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
