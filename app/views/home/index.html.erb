@@ -4,13 +4,11 @@
   <% unless user_signed_in? %>
     <li><%= link_to t('.sign_in'), :new_user_session %></li>
   <% end %>
-  <li><%= link_to t('.registration'), :new_user_registration %></li>
-
   <% if current_user.is_a?(Admin) %>
-    <br>
     <li><%= link_to t('.list_tests'), admin_tests_path %></li>
     <li><%= link_to t('.create_test'), new_admin_test_path %></li>
-  <% else %>
+    <li><%= link_to t('.registration'), :new_user_registration %></li>
+  <% elsif user_signed_in? %>
     <li><%= link_to t('.list_tests'), tests_path %></li>
   <% end %>
 </ul>
