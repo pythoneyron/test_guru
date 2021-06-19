@@ -1,33 +1,33 @@
-<h1>Тест: <%= @test.title %></h1>
-<%= link_to "Создать тест", new_admin_test_path %>
+<h1><%= t('.test') %>: <%= @test.title %></h1>
+<%= link_to t('.create_test'), new_admin_test_path %>
 
 <table>
   <tr>
-    <th>Название</th>
-    <th>Категория</th>
-    <th>Автор</th>
-    <th>Уровень сложности</th>
-    <th>Количество вопросов</th>
-    <th colspan="3">Функции</th>
+    <th><%= t('.title') %></th>
+    <th><%= t('.category') %></th>
+    <th><%= t('.author') %></th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.count_questions') %></th>
+    <th colspan="3"><%= t('.actions') %></th>
   </tr>
   <%= render @test %>
 </table>
 
 <br>
 
-<h2>Вопросы:</h2>
+<h2><%= t('.questions') %>:</h2>
 
-<%= link_to "Создать вопрос", new_test_question_path(@test.id) %>
+<%= link_to t('.create_question'), new_test_question_path(@test.id) %>
 
 <table>
   <thead>
   <tr>
-    <th>Вопрос</th>
-    <th>Test ID</th>
-    <th colspan="3">Функции</th>
+    <th><%= t('.question') %></th>
+    <th><%= t('.test_id') %></th>
+    <th colspan="3"><%= t('.actions') %></th>
   </tr>
   </thead>
   <%= render partial: 'admin/questions/question', collection: @test.questions %>
 </table>
 
-<%= link_to "Назад", admin_tests_path %>
+<%= link_to t('.back'), admin_tests_path %>

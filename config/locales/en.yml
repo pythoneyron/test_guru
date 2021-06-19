@@ -21,6 +21,16 @@ en:
   tests:
     index:
       header: "Tricky Tests"
+      title: "Title"
+      category: "Category"
+      author: "Author"
+      level: "Difficulty level"
+      count_questions: "Number of questions"
+      testing: "Testing"
+      back: "Back"
+
+    test:
+      start_test: "Start test"
 
   test_passages:
     result:
@@ -32,7 +42,61 @@ en:
         success: "Test was successfully created."
       index:
         header: "Tricky Tests"
+        title: "Title"
+        category: "Category"
+        author: "Author"
+        level: "Difficulty level"
+        count_questions: "Number of questions"
+        actions: "Actions"
+        create_test: "Create test"
+        back: "Back"
+      new:
+        title: "Create new test"
+        back: "Back"
+      show:
+        test: "Test"
+        header: "Tricky Tests"
+        title: "Title"
+        category: "Category"
+        author: "Author"
+        level: "Difficulty level"
+        count_questions: "Number of questions"
+        actions: "Actions"
+        create_test: "Create test"
+        questions: "Questions"
+        create_question: "Create question"
+        question: "Question"
+        test_id: "Test ID"
+        back: "Back"
+      edit:
+        back: "Back"
+      test:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Delete test?"
+      nav:
+        welcome: "Welcome"
+        sign_out: "Sign out"
+        header: "TestGuru Admin Panel"
 
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  home:
+    footer:
+      author: "Author"
+      project: "Project"
+      description: "Educational project in the online school"
+
+    index:
+      sign_in: "Sign in"
+      registration: "Register user"
+      list_tests: "List tests"
+      create_test: "Create test"
+
+  layouts:
+    application:
+      welcome: "Welcome"
+      sign_out: "Sign out"

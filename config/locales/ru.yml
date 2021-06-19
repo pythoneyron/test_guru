@@ -20,10 +20,19 @@ ru:
         other: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
 
-
   tests:
     index:
       header: "Доступные Тесты"
+      title: "Название"
+      category: "Категория"
+      author: "Автор"
+      level: "Уровень сложности"
+      count_questions: "Количество вопросов"
+      testing: "Тестирование"
+      back: "Назад"
+
+    test:
+      start_test: "Начать тест"
 
   test_passages:
     result:
@@ -35,7 +44,61 @@ ru:
         success: "Тест успешно создан."
       index:
         header: "Доступные Тесты"
+        title: "Название"
+        category: "Категория"
+        author: "Автор"
+        level: "Уровень сложности"
+        count_questions: "Количество вопросов"
+        actions: "Действия"
+        create_test: "Создать тест"
+        back: "Назад"
+      new:
+        title: "Создать новый тест"
+        back: "Назад"
+      show:
+        test: "Тест"
+        header: "Доступные Тесты"
+        title: "Название"
+        category: "Категория"
+        author: "Автор"
+        level: "Уровень сложности"
+        count_questions: "Количество вопросов"
+        actions: "Действия"
+        create_test: "Создать тест"
+        questions: "Вопросы"
+        create_question: "Создать вопрос"
+        question: "Вопрос"
+        test_id: "Тест ID"
+        back: "Назад"
+      edit:
+        back: "Назад"
+      test:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Удалить тест?"
+      nav:
+        welcome: "Добро пожаловать"
+        sign_out: "Выйти"
+        header: "Административная панель TestGuru"
 
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+
+  home:
+    footer:
+      author: "Автор"
+      project: "Проект"
+      description: "Учебный проект в онлайн-школе"
+
+    index:
+      sign_in: "Выполнить вход"
+      registration: "Зарегистрировать пользователя"
+      list_tests: "Список тестов"
+      create_test: "Создать тест"
+
+  layouts:
+    application:
+      welcome: "Добро пожаловать"
+      sign_out: "Выйти"
