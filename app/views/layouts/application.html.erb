@@ -16,8 +16,8 @@
 
     <% if user_signed_in? %>
       <p class="nav user">
-        Добро пожаловать, <b><%= current_user.email %></b> Guru |
-        <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+        <%= t('.welcome') %>, <b><%= current_user.email %></b> Guru |
+        <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %>
       </p>
     <% end %>
 

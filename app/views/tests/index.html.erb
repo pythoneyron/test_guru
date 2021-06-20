@@ -1,15 +1,15 @@
-<h1>Список тестов</h1>
+<h1><%= t('.header') %></h1>
 
 <table>
   <tr>
-    <th>Название</th>
-    <th>Категория</th>
-    <th>Автор</th>
-    <th>Уровень сложности</th>
-    <th>Количество вопросов</th>
-    <th>Тестирование</th>
+    <th><%= t('.title') %></th>
+    <th><%= t('.category') %></th>
+    <th><%= t('.author') %></th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.count_questions') %></th>
+    <th><%= t('.testing') %></th>
   </tr>
   <%= render @tests %>
 </table>
 
-<%= link_to "Назад", :root %>
+<%= link_to t('.back'), :root %>
