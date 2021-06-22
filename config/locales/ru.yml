@@ -19,6 +19,15 @@ ru:
         few: "Обнаружено %{count} ошибки"
         other: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
+    nav:
+      welcome: "Добро пожаловать"
+      sign_out: "Выйти"
+      sign_in: "Выполнить вход"
+      registration: "Зарегистрироваться"
+    footer:
+      author: "Автор"
+      project: "Проект"
+      description: "Учебный проект в онлайн-школе"
 
   tests:
     index:
@@ -87,14 +96,9 @@ ru:
       subject: "Вы успешно завершили тест на TestGuru!"
 
   home:
-    footer:
-      author: "Автор"
-      project: "Проект"
-      description: "Учебный проект в онлайн-школе"
-
     index:
       sign_in: "Выполнить вход"
-      registration: "Зарегистрировать пользователя"
+      registration: "Зарегистрироваться"
       list_tests: "Список тестов"
       create_test: "Создать тест"
 
