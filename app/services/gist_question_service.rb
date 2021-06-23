@@ -15,6 +15,7 @@ class GistQuestionService
   def gist_params
     {
       description: "A question about #{@test.title} from TestGuru",
+      accept: "application/vnd.github.v3+json",
       files: {
         'test-guru-question.txt' => {
           content: gist_content
@@ -25,7 +26,7 @@ class GistQuestionService
 
   def gist_content
     content = [@question.body]
-    content += @question.answers.pluck(:body)
+    content += @question.answers.pluck(:text)
     content.join("\n")
   end
 

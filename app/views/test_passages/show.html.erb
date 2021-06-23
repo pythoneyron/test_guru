@@ -1,7 +1,7 @@
 <h1>Выполнение теста: <%= @test_passage.test.title %></h1>
 
 <b>
-  <%= @test_passage.current_question.body %>
+  <b><%= @test_passage.current_question.body %></b>
 </b>
 
 <p>
@@ -15,5 +15,6 @@
     </div>
     <% end %>
 
+  <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
   <p><%= form.submit 'Далее', class: "btn btn-primary" %></p>
 <% end %>
