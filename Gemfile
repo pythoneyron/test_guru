@@ -31,6 +31,10 @@ gem 'devise', '~> 4.0'
 
 gem 'rails-i18n', '~> 6.0.0'
 
+# NETWORKING
+
+gem 'faraday'
+
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.0.0'
 
