@@ -17,6 +17,15 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    nav:
+      welcome: "Welcome"
+      sign_out: "Sign out"
+      sign_in: "Sign in"
+      registration: "Registration"
+    footer:
+      author: "Author"
+      project: "Project"
+      description: "Educational project in the online school"
 
   tests:
     index:
@@ -85,14 +94,9 @@ en:
       subject: "You just completed the TestGuru test!"
 
   home:
-    footer:
-      author: "Author"
-      project: "Project"
-      description: "Educational project in the online school"
-
     index:
       sign_in: "Sign in"
-      registration: "Register user"
+      registration: "Registration"
       list_tests: "List tests"
       create_test: "Create test"
 

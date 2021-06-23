@@ -1,5 +1,11 @@
 <nav class="navbar navbar-light bg-light">
-  <h2 class="header"><%= link_to 'TestGuru', root_path, class: 'navbar-brand' %></h2>
+  <h2 class="header">
+    <% if current_user && current_user.admin? %>
+      <%= link_to 'Admin TestGuru', admin_tests_path, class: 'navbar-brand' %>
+    <% else %>
+      <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
+    <% end %>
+  </h2>
 
   <span class="navbar-text">
     <% if user_signed_in? %>

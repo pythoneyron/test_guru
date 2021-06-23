@@ -1,9 +1,6 @@
 <h1>Главная</h1>
 
 <ul class="menu">
-  <% unless user_signed_in? %>
-    <li><%= link_to t('.sign_in'), :new_user_session %></li>
-  <% end %>
   <% if current_user.is_a?(Admin) %>
     <li><%= link_to t('.list_tests'), admin_tests_path %></li>
     <li><%= link_to t('.create_test'), new_admin_test_path %></li>
