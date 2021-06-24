@@ -27,13 +27,20 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise', '~> 4.0'
 
-#LOCALIZATION
+# LOCALIZATION
 
 gem 'rails-i18n', '~> 6.0.0'
 
 # NETWORKING
 
 gem 'faraday'
+
+# API GITHUB OCTOKIT
+
+gem "octokit", "~> 4.0"
+
+# ENV
+gem 'dotenv-rails'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.0.0'

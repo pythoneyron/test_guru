@@ -47,7 +47,7 @@ ru:
     result:
       header: "Тест %{title} успешно завершен!"
     gist:
-      success: "Gist успешно сохранен!"
+      success: "Gist успешно сохранен! Ссылка: %{url}"
       failure: "Во время сохранения gist произошла ошибка"
 
   admin:
@@ -93,6 +93,12 @@ ru:
         welcome: "Добро пожаловать"
         sign_out: "Выйти"
         header: "Административная панель TestGuru"
+    gists:
+      index:
+        question: "Вопрос"
+        gist_url: "Хэш гист"
+        user: "Пользователь"
+        back: "Назад"
 
   tests_mailer:
     completed_test:
@@ -102,6 +108,7 @@ ru:
     index:
       sign_in: "Выполнить вход"
       registration: "Зарегистрироваться"
+      list_gists: "Список гистов"
       list_tests: "Список тестов"
       create_test: "Создать тест"
 
