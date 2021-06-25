@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 2021_06_24_173713) do
   end
 
   create_table "gists", force: :cascade do |t|
-    t.string "question", null: false
-    t.string "hash", null: false
-    t.string "link_to_gist", null: false
+    t.string "question"
+    t.string "hash_gist"
+    t.string "link_to_gist"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,5 +1,4 @@
 class GitHubClient
-  Dotenv::Railtie.load
   ACCESS_TOKEN = ENV['ACCESS_TOKEN']
 
   def initialize

@@ -2,12 +2,12 @@
 
 one:
   question: MyString
-  hash: MyString
+  hash_gist: MyString
   link_to_gist: MyString
   user_id: 1
 
 two:
   question: MyString
-  hash: MyString
+  hash_gist: MyString
   link_to_gist: MyString
   user_id: 1
