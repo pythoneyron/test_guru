@@ -11,9 +11,10 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    gist_obj = GistQuestionService.new(@test_passage.current_question)
+    result = gist_obj.call
 
-    if result.id
+    if gist_obj.success?
       current_user.gists.create(
         question: @test_passage.current_question.body, hash_gist: result.id, link_to_gist: result.html_url)
 

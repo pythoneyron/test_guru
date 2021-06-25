@@ -10,6 +10,11 @@ class GistQuestionService
     @client.create_gist(gist_params)
   end
 
+  def success?
+    last_response = @client.octokit_client.last_response
+    last_response and last_response.status == 201
+  end
+
   private
 
   def gist_params
@@ -28,5 +33,4 @@ class GistQuestionService
     content += @question.answers.pluck(:text)
     content.join("\n")
   end
-
 end
