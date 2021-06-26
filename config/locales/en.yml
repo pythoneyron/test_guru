@@ -44,6 +44,9 @@ en:
   test_passages:
     result:
       header: "The %{title} Test was completed!"
+    gist:
+      success: "Gist was successfully created! Link: %{url}"
+      failure: "An error occurred while saving gist"
 
   admin:
     tests:
@@ -88,6 +91,12 @@ en:
         welcome: "Welcome"
         sign_out: "Sign out"
         header: "TestGuru Admin Panel"
+    gists:
+      index:
+        question: "Question"
+        gist_url: "Hash gist"
+        user: "User"
+        back: "Back"
 
   tests_mailer:
     completed_test:
@@ -97,6 +106,7 @@ en:
     index:
       sign_in: "Sign in"
       registration: "Registration"
+      list_gists: "List gists"
       list_tests: "List tests"
       create_test: "Create test"
 

@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  Dotenv::Railtie.load
+
   before_action :set_locale
 
   def after_sign_in_path_for(resource)
