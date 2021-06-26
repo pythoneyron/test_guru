@@ -12,7 +12,7 @@ class GistQuestionService
 
   def success?
     last_response = @client.octokit_client.last_response
-    last_response and last_response.status == 201
+    last_response && last_response.status == 201
   end
 
   private
