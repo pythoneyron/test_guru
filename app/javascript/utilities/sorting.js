@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function () {
-   let control = document.querySelector('.sort-by-title')
+    let control = document.querySelector('.sort-by-title')
 
     if (control) { control.addEventListener('click', sortRowsByTitle) }
 })
@@ -8,7 +8,7 @@ function sortRowsByTitle() {
     let table = document.querySelector('table')
 
     // NodeList
-    let rows = table.querySelector('tr')
+    let rows = table.querySelectorAll('tr')
     let sortedRows = []
 
     // Select all table rows except the first one which is the header
@@ -27,13 +27,16 @@ function sortRowsByTitle() {
     }
 
     let sortedTable = document.createElement('table')
+    sortedTable.classList.add('table', 'table-striped')
 
-    sortedTable.classList.add('table')
-    sortedTable.appendChild(rows[0])
+    let tbodyElement = document.createElement('tbody')
+    tbodyElement.appendChild(rows[0])
 
     for (let i = 0; i < sortedRows.length; i++) {
-        sortedTable.appendChild(sortedRows[i])
+        tbodyElement.appendChild(sortedRows[i])
     }
+
+    sortedTable.append(tbodyElement)
 
     table.parentNode.replaceChild(sortedTable, table)
 }
