@@ -5,3 +5,14 @@
 .hide {
   display: none;
 }
+
+input.invalid {
+  border: 2px dashed red;
+  background-image: linear-gradient(to right, red, pink);
+}
+
+input.valid {
+  border: 2px solid black;
+  background-image: linear-gradient(to right, green, lightgreen);
+
+}
