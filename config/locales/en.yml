@@ -91,6 +91,8 @@ en:
         welcome: "Welcome"
         sign_out: "Sign out"
         header: "TestGuru Admin Panel"
+      form_inline:
+        submit: "Ок"
     gists:
       index:
         question: "Question"
