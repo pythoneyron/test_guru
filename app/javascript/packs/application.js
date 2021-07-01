@@ -10,6 +10,7 @@ import "channels"
 import "utilities/sorting"
 import "utilities/check_passwords"
 import "utilities/form_inline"
+import "utilities/progress_bar"
 
 Rails.start()
 Turbolinks.start()
