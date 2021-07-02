@@ -93,6 +93,8 @@ ru:
         welcome: "Добро пожаловать"
         sign_out: "Выйти"
         header: "Административная панель TestGuru"
+      form_inline:
+        submit: "Ok"
     gists:
       index:
         question: "Вопрос"

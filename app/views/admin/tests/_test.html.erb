@@ -1,10 +1,17 @@
 <tr>
-  <td class="title"><%= test.title %></td>
-  <td class="id"><%= test.category_id %></td>
-  <td class="id"><%= test.author_id %></td>
-  <td class="id"><%= test.level %></td>
-  <td class="id"><%= test.questions.count %></td>
-  <td class="functions"><%= link_to t('.show'), admin_test_path(test) %></td>
-  <td class="functions"><%= link_to t('.edit'), edit_admin_test_path(test) %></td>
-  <td class="functions"><%= link_to t('.delete'), admin_test_path(test), method: :delete, data: { confirm: t('.confirm') } %></td>
+  <td class="title align-middle">
+    <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </td>
+  <td class="id align-middle"><%= test.category_id %></td>
+  <td class="id align-middle"><%= test.author_id %></td>
+  <td class="id align-middle"><%= test.level %></td>
+  <td class="id align-middle"><%= test.questions.count %></td>
+  <td class="functions align-middle"><%= link_to t('.show'), admin_test_path(test) %></td>
+  <td class="functions align-middle">
+    <%= link_to t('.edit'), edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' %>
+  </td>
+  <td class="functions align-middle">
+    <%= link_to t('.delete'), admin_test_path(test), method: :delete, data: { confirm: t('.confirm') } %>
+  </td>
 </tr>
