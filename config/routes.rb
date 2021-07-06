@@ -33,4 +33,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feed_backs
+
 end

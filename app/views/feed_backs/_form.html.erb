@@ -1,0 +1,22 @@
+<div class="card border-primary">
+  <div class="card-body">
+    <%= form_with model: @feed_back, local: true do |form| %>
+      <%= render 'shared/errors', resource: @test%>
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control' %>
+
+        <%= form.label :email %>
+        <%= form.email_field :email, class: 'form-control' %>
+
+        <%= form.label :header %>
+        <%= form.text_field :header, class: 'form-control' %>
+
+        <%= form.label :message %>
+        <%= form.text_field :message, class: 'form-control' %>
+
+      </div>
+      <%= form.submit "Отправить", class: 'btn btn-primary'  %>
+    <% end %>
+  </div>
+</div>

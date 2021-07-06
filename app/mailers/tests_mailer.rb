@@ -7,4 +7,8 @@ class TestsMailer < ApplicationMailer
     mail to: @user.email
   end
 
+  def send_feed_back(feed_back)
+    @feed_back = feed_back
+    mail to: User.find_by(type: 'Admin')
+  end
 end

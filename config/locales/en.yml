@@ -11,6 +11,11 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+      feed_back:
+        name: 'Your name'
+        email: 'Email'
+        header: 'Header'
+        message: 'Message'
 
   shared:
     errors:
@@ -116,3 +121,10 @@ en:
     application:
       welcome: "Welcome"
       sign_out: "Sign out"
+
+  feed_backs:
+    success: 'Feed back send'
+    new:
+      title: 'form feed back'
+      back: 'Back'
+      name: 'Your name'

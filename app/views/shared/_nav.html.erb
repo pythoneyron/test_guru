@@ -9,6 +9,7 @@
 
   <span class="navbar-text">
     <% if user_signed_in? %>
+      <%= link_to 'Форма обратной связи', new_feed_back_path %> |
       <%= t('.welcome') %>, <b><%= current_user.email %></b> Guru |
       <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %>
     <% else %>
