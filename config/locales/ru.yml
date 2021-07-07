@@ -11,6 +11,11 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+      feed_back:
+        name: 'Ваше имя'
+        email: 'Email'
+        header: 'Заголовок обращения'
+        message: 'Текст сообщения'
 
   shared:
     errors:
@@ -118,3 +123,10 @@ ru:
     application:
       welcome: "Добро пожаловать"
       sign_out: "Выйти"
+
+  feed_backs:
+    success: 'Отзыв успешно отправлен'
+    new:
+      title: 'Форма обратной связи'
+      back: 'Назад'
+      name: 'Ваше имя'
