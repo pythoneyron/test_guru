@@ -2,7 +2,7 @@ class TestPassage < ApplicationRecord
   SUCCESS_RATE_PERCENT = 85
 
   belongs_to :user
-  belongs_to :test
+  belongs_to :test, dependent: :delete
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
