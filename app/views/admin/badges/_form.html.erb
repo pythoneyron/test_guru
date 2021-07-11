@@ -1,0 +1,22 @@
+<div class="card border-primary">
+  <div class="card-body">
+    <%= form_with model: [:admin, @badge], local: true do |form| %>
+      <%= render 'shared/errors', resource: @badge%>
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, id: :badge_title, class: 'form-control' %>
+
+        <%= form.label :url_image %>
+        <%= form.text_field :url_image, id: :badge_url_image, class: 'form-control' %>
+
+        <%= form.label :rule %>
+        <%= form.select :rule, Badge.rules.keys.map {|rule| [rule.titleize, rule]}, id: :badge_rule, class: 'form-control' %>
+
+        <%#= form.label :user %>
+        <%#= form.collection_select :user_id, User.all, :id, :first_name, prompt: true, class: 'form-control' %>
+
+      </div>
+      <%= form.submit "Создать", class: 'btn btn-primary'  %>
+    <% end %>
+  </div>
+</div>

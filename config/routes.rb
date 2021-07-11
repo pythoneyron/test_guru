@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :gists, shallow: true, only: %i[show index]
+    resources :badges, shallow: true
     resources :tests do
       patch :update_inline, on: :member
 

@@ -107,6 +107,34 @@ ru:
         user: "Пользователь"
         back: "Назад"
 
+    badges:
+      success: "Бэйдж успешно создан"
+      index:
+        create_badge: "Создать бэйдж"
+        title: "Название"
+        url_image: "Ссылка на изображение бэйджа"
+        rule: "Правило"
+        users: "Пользователи"
+        actions: "Действия"
+        back: "Назад"
+      badge:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Удалить бэйдж?"
+      new:
+        title: "Создать новый бэйдж"
+        back: "Назад"
+      show:
+        badge: "Бэйдж"
+        title: "Название"
+        url_image: "Ссылка на изображение бэйджа"
+        rule: "Правило"
+        users: "Пользователи"
+        actions: "Действия"
+        create_badge: "Создать бэйдж"
+        back: "Назад"
+
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
@@ -115,6 +143,7 @@ ru:
     index:
       sign_in: "Выполнить вход"
       registration: "Зарегистрироваться"
+      list_badges: "Список бэйджей"
       list_gists: "Список гистов"
       list_tests: "Список тестов"
       create_test: "Создать тест"

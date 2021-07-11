@@ -1,0 +1,21 @@
+<h1>Список бэйджев</h1>
+<%= link_to t('.create_badge'), new_admin_badge_path %>
+
+<%= render 'shared/errors', resource: @test %>
+
+<table class="table table-striped">
+  <tr class="table-primary">
+    <th class="sort-by-title pointer">
+      <%= t('.title') %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th><%= t('.url_image') %></th>
+    <th><%= t('.rule') %></th>
+    <th><%= t('.users') %></th>
+    <th colspan="3"><%= t('.actions') %></th>
+  </tr>
+  <%= render @badges %>
+</table>
+
+<%= link_to t('.back'), :root %>
