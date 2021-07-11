@@ -12,9 +12,6 @@
         <%= form.label :rule %>
         <%= form.select :rule, Badge.rules.keys.map {|rule| [rule.titleize, rule]}, id: :badge_rule, class: 'form-control' %>
 
-        <%#= form.label :user %>
-        <%#= form.collection_select :user_id, User.all, :id, :first_name, prompt: true, class: 'form-control' %>
-
       </div>
       <%= form.submit "Создать", class: 'btn btn-primary'  %>
     <% end %>
