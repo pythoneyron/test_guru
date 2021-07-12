@@ -32,7 +32,8 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
-      current_user.badges.push(check_and_select_badge)
+      badge = check_and_select_badge
+      current_user.badges.push(badge) if badge
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -42,10 +43,10 @@ class TestPassagesController < ApplicationController
   def check_and_select_badge
     #TODO Переделать нахрен
     category_id_backend = Category.find_by(title: 'Backend').id
-    tests_backend = Test.find_by(category_id: category_id_backend)
-    tests_backend_user = current_user.tests.find_by(category_id: category_id_backend)
+    tests_backend = Test.where(category_id: category_id_backend)
+    tests_backend_user = current_user.tests.where(category_id: category_id_backend)
 
-    if tests_backend == tests_backend_user
+    if tests_backend in tests_backend_user
       Badge.find_by(rule: 'success_backend')
     end
   end

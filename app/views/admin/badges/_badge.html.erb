@@ -1,6 +1,6 @@
 <tr>
   <td class="title align-middle"><%= badge.title %></td>
-  <td class="id align-middle"><%= badge.url_image %></td>
+  <td class="id align-middle"><img src="<%= badge.url_image %>" width="70" height="70"></td>
   <td class="id align-middle"><%= badge.rule %></td>
   <td class="user_id align-middle">
     <% badge.users.each { |user| user.first_name }%>
