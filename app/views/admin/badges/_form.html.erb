@@ -10,7 +10,7 @@
         <%= form.text_field :url_image, id: :badge_url_image, class: 'form-control' %>
 
         <%= form.label :rule %>
-        <%= form.select :rule, Badge.rules.keys.map {|rule| [rule.titleize, rule]}, id: :badge_rule, class: 'form-control' %>
+        <%= form.select :rule, Badge.rules.values.map {|rule| [rule.titleize, rule]}, id: :badge_rule, class: 'form-control' %>
 
       </div>
       <%= form.submit "Создать", class: 'btn btn-primary'  %>

@@ -135,6 +135,20 @@ ru:
         create_badge: "Создать бэйдж"
         back: "Назад"
 
+  user_badges:
+    show:
+      title: "Название"
+      image: "Изображение бэйджа"
+      rule: "Правило"
+      back: "Назад"
+
+  badges:
+    show:
+      title: "Название"
+      image: "Изображение бэйджа"
+      rule: "Правило"
+      back: "Назад"
+
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
@@ -147,6 +161,7 @@ ru:
       list_gists: "Список гистов"
       list_tests: "Список тестов"
       create_test: "Создать тест"
+      my_list_badges: "Мой список бэйджей"
 
   layouts:
     application:

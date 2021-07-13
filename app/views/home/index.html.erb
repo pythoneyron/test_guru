@@ -9,5 +9,7 @@
     <li><%= link_to t('.registration'), :new_user_registration %></li>
   <% elsif user_signed_in? %>
     <li><%= link_to t('.list_tests'), tests_path %></li>
+    <li><%= link_to t('.my_list_badges'), user_badges_path %></li>
+    <li><%= link_to t('.list_badges'), badges_path %></li>
   <% end %>
 </ul>
