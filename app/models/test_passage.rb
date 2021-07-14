@@ -47,6 +47,6 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first unless self.completed?
   end
 end

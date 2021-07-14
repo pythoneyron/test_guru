@@ -9,8 +9,7 @@ class Test < ApplicationRecord
 
   scope :by_category_name, ->(category) { joins(:category).where(categories: { title: category }) }
 
-  scope :correct_questions_more_zero, -> { joins(:test_passages).where('test_passages.correct_questions > 0') }
-  scope :success_tests, -> { where("(100 / test_passages.correct_questions * (SELECT COUNT(id) FROM #{Question.table_name} WHERE test_id = tests.id)) >= 85") }
+  scope :success_tests, -> { joins(:test_passages).where('test_passages.success = ?', true) }
 
   def self.by_category_name_arr(category)
     by_category_name(category).order(id: :desc).pluck('tests.title')

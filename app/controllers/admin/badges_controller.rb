@@ -1,7 +1,10 @@
 class Admin::BadgesController < Admin::BaseController
 
-  before_action :set_badges, only: %i[index]
   before_action :set_badge, only: %i[show destroy edit update ]
+
+  def index
+    @badges = Badge.all
+  end
 
   def create
     @badge = current_user.badges.new(badge_params)
@@ -34,10 +37,6 @@ class Admin::BadgesController < Admin::BaseController
 
   def set_badge
     @badge = Badge.find(params[:id])
-  end
-
-  def set_badges
-    @badges = Badge.all
   end
 
   def badge_params
