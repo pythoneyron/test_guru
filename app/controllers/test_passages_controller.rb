@@ -2,7 +2,6 @@ class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[ show result update gist ]
-  before_action
 
   def show
   end
@@ -34,8 +33,7 @@ class TestPassagesController < ApplicationController
 
       TestsMailer.completed_test(@test_passage).deliver_now
 
-      test_passage_obj = TestPassageService.new(@test_passage, current_user)
-      test_passage_obj.call_set_badges
+      TestPassageService.new(@test_passage).call_set_badges if @test_passage.success?
 
       redirect_to result_test_passage_path(@test_passage)
     else

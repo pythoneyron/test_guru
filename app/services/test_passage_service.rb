@@ -1,52 +1,42 @@
 class TestPassageService
   TEST_LEVEL = 3
+  FILTER_BY_BACKEND = 'Backend'
 
-  def initialize(test_passage, current_user)
+  def initialize(test_passage)
     @test_passage = test_passage
-    @current_user = current_user
+    @user = test_passage.user
   end
 
   def call_set_badges
-    # Бэйдж после успешного прохождения всех тестов из категории Backend
-    success_backend
-
-    # Бэйдж после успешного прохождения теста с первой попытки
-    success_on_first_try if @test_passage.success?
-
-    # Бэйдж после успешного прохождения всех тестов определённого уровня
-    success_certain_level
+    # Обходим все бэйджи и вызываем одноименные методы
+    Badge.all.each do |badge|
+      @user.badges << badge if send("#{badge.rule}_award?", badge)
+    end
   end
 
   private
 
-  def success_backend
-    tests_backend = Test.by_category_name('Backend').count
+  def success_backend_award?(badge)
+    tests_backend = Test.by_category_name(FILTER_BY_BACKEND).count
 
-    tests_backend_user = @current_user.tests.success_tests.distinct.count
+    tests_backend_user = @user.tests.success_tests.distinct.count
 
-    if tests_backend == tests_backend_user
-      badge_success_backend = Badge.find_by(rule: 'success_backend')
-      @current_user.badges.push(badge_success_backend) unless @current_user.badges.include?(badge_success_backend)
-    end
+    true if tests_backend == tests_backend_user && !@user.badges.include?(badge)
   end
 
-  def success_on_first_try
+  def success_on_first_try_award?(badge)
     user = @test_passage.user
     test = @test_passage.test
 
-    badge_success_on_first_try = Badge.find_by(rule: 'success_on_first_try')
     tests_passages = TestPassage.where(user_id: user.id, test_id: test.id)
 
-    @current_user.badges.push(badge_success_on_first_try) if tests_passages.count == 1
+    true if tests_passages.count == 1
   end
 
-  def success_certain_level
+  def success_certain_level_award?(badge)
     tests_by_level = Test.where(level: TEST_LEVEL).count
-    correct_tests_by_level = @current_user.tests.success_tests.where(level: TEST_LEVEL).distinct.count
+    correct_tests_by_level = @user.tests.success_tests.where(level: TEST_LEVEL).distinct.count
 
-    if tests_by_level == correct_tests_by_level
-      badge_certain_level = Badge.find_by(rule: 'success_certain_level')
-      @current_user.badges.push(badge_certain_level)
-    end
+    true if tests_by_level == correct_tests_by_level
   end
 end
