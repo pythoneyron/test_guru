@@ -9,6 +9,8 @@ class Test < ApplicationRecord
 
   scope :by_category_name, ->(category) { joins(:category).where(categories: { title: category }) }
 
+  scope :success_tests, -> { joins(:test_passages).where('test_passages.success = ?', true) }
+
   def self.by_category_name_arr(category)
     by_category_name(category).order(id: :desc).pluck('tests.title')
   end

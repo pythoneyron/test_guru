@@ -1,0 +1,22 @@
+<% if @badges %>
+  <table class="table table-striped">
+    <tr class="table-primary">
+      <th><%= t('.title') %></th>
+      <th><%= t('.image') %></th>
+      <th><%= t('.rule') %></th>
+    </tr>
+    <% @badges.each do |badge| %>
+      <tr>
+        <td class="title align-middle"><%= badge.title %></td>
+        <td class="id align-middle"><img src="<%= badge.url_image %>" width="70" height="70"></td>
+        <td class="id align-middle"><%= badge.rule %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <br>
+
+  <%= link_to t('.back'), root_path %>
+<% else %>
+  <h1>Бэйджи еще не созданы</h1>
+<% end %>

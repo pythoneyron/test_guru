@@ -34,7 +34,9 @@ questions = Question.create(
    { body: 'Какой ЯП написал Гвидо ван Россум', test_id: tests[0].id },
    { body: 'Какой ЯП разработала компания Netscape', test_id: tests[1].id },
    { body: 'В какой ЯП используются пробелы для определения блока кода', test_id: tests[0].id },
-   { body: 'Какой самый популярный ЯП для машинного обучения', test_id: tests[4].id }]
+   { body: 'Какой самый популярный ЯП для машинного обучения', test_id: tests[4].id },
+   { body: 'В каком году был написан язык Ruby', test_id: tests[2].id },
+   { body: 'В каком году был написан язык Java', test_id: tests[3].id }]
 )
 
 Answer.create(
@@ -51,8 +53,14 @@ Answer.create(
    { text: 'Java', question_id: questions[3].id, correct: false },
 
    { text: 'Python, Java, C++', question_id: questions[4].id, correct: true },
-   { text: 'Ruby', question_id: questions[4].id, correct: false }
-  ]
+   { text: 'Ruby', question_id: questions[4].id, correct: false },
+
+   { text: '1995', question_id: questions[5].id, correct: true },
+   { text: '1993', question_id: questions[5].id, correct: false },
+
+   { text: '1995', question_id: questions[6].id, correct: true },
+   { text: '1992', question_id: questions[6].id, correct: false },
+   { text: '1996', question_id: questions[6].id, correct: false }]
 )
 
 TestPassage.create([
@@ -66,4 +74,11 @@ TestPassage.create([
     { user_id: users[1].id, test_id: tests[5].id },
     { user_id: users[2].id, test_id: tests[4].id },
     { user_id: users[2].id, test_id: tests[3].id },
-    { user_id: users[2].id, test_id: tests[2].id }])
+    { user_id: users[2].id, test_id: tests[2].id }]
+)
+
+Badge.create([
+               {title: 'Успешно выполнил все тесты Backend', url_image: 'https://image.flaticon.com/icons/png/128/1579/1579506.png', rule: 'success_backend'},
+               {title: 'Успешно выполнил тест с первого раза', url_image: 'https://image.flaticon.com/icons/png/128/1579/1579498.png', rule: 'success_on_first_try'},
+               {title: 'Успешно выполнил тесты 3 уровня', url_image: 'https://image.flaticon.com/icons/png/128/1579/1579504.png', rule: 'success_certain_level'}
+             ])
