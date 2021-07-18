@@ -42,6 +42,7 @@ ru:
       author: "Автор"
       level: "Уровень сложности"
       count_questions: "Количество вопросов"
+      time_to_solve: "Время для решения"
       testing: "Тестирование"
       back: "Назад"
 
@@ -66,6 +67,7 @@ ru:
         author: "Автор"
         level: "Уровень сложности"
         count_questions: "Количество вопросов"
+        time_to_solve: "Время для решения"
         actions: "Действия"
         create_test: "Создать тест"
         back: "Назад"
@@ -80,6 +82,7 @@ ru:
         author: "Автор"
         level: "Уровень сложности"
         count_questions: "Количество вопросов"
+        time_to_solve: "Время для решения"
         actions: "Действия"
         create_test: "Создать тест"
         questions: "Вопросы"

@@ -22,8 +22,6 @@ function setProgress(event) {
     if (current_count_question <= all_count_questions) {
 
         let res_part_percent = part_percent * current_count_question
-
-
         let elem = document.getElementById("progress-bar");
 
         elem.style.width = res_part_percent + "%";

@@ -7,6 +7,7 @@
   <td class="id align-middle"><%= test.author_id %></td>
   <td class="id align-middle"><%= test.level %></td>
   <td class="id align-middle"><%= test.questions.count %></td>
+  <td class="id align-middle"><%= test.timer.strftime("%H:%M:%S") if test.timer %></td>
   <td class="functions align-middle"><%= link_to t('.show'), admin_test_path(test) %></td>
   <td class="functions align-middle">
     <%= link_to t('.edit'), edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' %>
