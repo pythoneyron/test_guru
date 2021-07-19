@@ -1,21 +1,27 @@
 document.addEventListener('turbolinks:load', function () {
     let timerData = document.getElementById("timer")
+    let urlTimer = timerData.dataset.url_timer
+    let urlResult = timerData.dataset.result
     let timer = timerData.dataset.timer
 
     if (timer){
-        startTimer(timer);
+        startTimer(timer, urlTimer, urlResult);
     }
 })
 
-function startTimer(time) {
+function startTimer(time, urlTimer, urlResult) {
     let timePassed = 0;
     let timeLeft = time;
 
     const timerInterval = setInterval(() => {
-        if (time === timePassed){
-            clearInterval(timerInterval);
-            return alert('Время вышло!')
-        }
+        urlRequest(urlTimer).then(json => {
+            if (!json['time_left']) {
+                clearInterval(timerInterval);
+                alert('Время вышло! Тест завершен!')
+                location.href = urlResult
+            }
+        })
+
         // Количество времени, которое прошло, увеличивается на 1
         timePassed = timePassed += 1;
         timeLeft = time - timePassed;
@@ -51,4 +57,14 @@ function formatTime(time) {
 
     // Вывод в формате HH:MM:SS
     return `${hours}:${minutes}:${seconds}`;
+}
+
+async function urlRequest(url) {
+    let response = await fetch(url);
+
+    if (response.ok) {
+        return response.json();
+    } else {
+        alert("Ошибка HTTP: " + response.status);
+    }
 }
