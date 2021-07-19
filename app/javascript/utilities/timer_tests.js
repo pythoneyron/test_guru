@@ -1,11 +1,13 @@
 document.addEventListener('turbolinks:load', function () {
     let timerData = document.getElementById("timer")
-    let urlTimer = timerData.dataset.url_timer
-    let urlResult = timerData.dataset.result
-    let timer = timerData.dataset.timer
+    if (timerData) {
+        let urlTimer = timerData.dataset.url_timer
+        let urlResult = timerData.dataset.result
+        let timer = timerData.dataset.timer
 
-    if (timer){
-        startTimer(timer, urlTimer, urlResult);
+        if (timer){
+            startTimer(timer, urlTimer, urlResult);
+        }
     }
 })
 

@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function () {
-    let controls = document.querySelectorAll('.form-inline-link1')
+    let controls = document.querySelectorAll('.form-inline-link')
 
     if (controls.length){
         for (let i = 0; i < controls.length; i++) {
