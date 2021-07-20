@@ -7,16 +7,6 @@ class TestPassagesController < ApplicationController
 
   def result; end
 
-  def check_timer
-    return unless @test_passage.test.timer
-
-    dt = @test_passage.test.timer.to_time
-    started_test = @test_passage.created_at
-    seconds = dt.hour * 3600 + dt.min * 60 + dt.sec
-
-    render json: { time_left: DateTime.now <= started_test + seconds }
-  end
-
   def gist
     gist_obj = GistQuestionService.new(@test_passage.current_question)
     result = gist_obj.call
@@ -36,12 +26,14 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
+    unless time_is_left?
+      @test_passage.update(success: false)
+      return redirect_to result_test_passage_path(@test_passage), alert: 'Время вышло, тест не выполнен!'
+    end
+
     if @test_passage.completed?
       @test_passage.update(success: true) if @test_passage.success?
-
-      TestsMailer.completed_test(@test_passage).deliver_now
-
-      TestPassageService.new(@test_passage).call_set_badges if @test_passage.success?
+      send_email_and_set_badge
 
       redirect_to result_test_passage_path(@test_passage)
     else
@@ -53,6 +45,20 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def send_email_and_set_badge
+    TestsMailer.completed_test(@test_passage).deliver_now
+    TestPassageService.new(@test_passage).call_set_badges if @test_passage.success?
+  end
+
+  def time_is_left?
+    return unless @test_passage.test.timer
+
+    seconds = @test_passage.test.timer_on_seconds
+    started_test = @test_passage.created_at
+
+    DateTime.now <= started_test + seconds
   end
 
 end

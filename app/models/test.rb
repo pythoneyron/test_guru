@@ -28,8 +28,8 @@ class Test < ApplicationRecord
 
   def timer_on_seconds
     if timer
-      dt = DateTime.parse(timer.strftime("%H:%M:%S"))
-      dt.hour * 3600 + dt.min * 60 #=> 37800
+      dt = timer.to_time
+      dt.hour * 3600 + dt.min * 60 + dt.sec
     end
   end
 end

@@ -1,32 +1,30 @@
 document.addEventListener('turbolinks:load', function () {
     let timerData = document.getElementById("timer")
     if (timerData) {
-        let urlTimer = timerData.dataset.url_timer
         let urlResult = timerData.dataset.result
         let timer = timerData.dataset.timer
 
         if (timer){
-            startTimer(timer, urlTimer, urlResult);
+            startTimer(timer, urlResult);
         }
     }
 })
 
-function startTimer(time, urlTimer, urlResult) {
+function startTimer(timer, urlResult) {
     let timePassed = 0;
-    let timeLeft = time;
+    let timeLeft = timer;
 
     const timerInterval = setInterval(() => {
-        urlRequest(urlTimer).then(json => {
-            if (!json['time_left']) {
-                clearInterval(timerInterval);
-                alert('Время вышло! Тест завершен!')
-                location.href = urlResult
-            }
-        })
 
         // Количество времени, которое прошло, увеличивается на 1
         timePassed = timePassed += 1;
-        timeLeft = time - timePassed;
+        timeLeft = timer - timePassed;
+
+        if (!timeLeft) {
+            clearInterval(timerInterval);
+            alert('Время вышло! Тест завершен!')
+            location.href = urlResult
+        }
 
         // Обновление оставшегося времени
         document.getElementById("timer").innerHTML = formatTime(timeLeft);
