@@ -3,27 +3,18 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[ show result update gist check_timer ]
 
-  def show
-  end
+  def show; end
 
-  def result
-  end
+  def result; end
 
   def check_timer
-    if @test_passage.test
-      timer = @test_passage.test.timer
-      started_test_time = @test_passage.created_at
+    return unless @test_passage.test.timer
 
-      date_time = DateTime.parse(timer.to_s(:time))
-      seconds = date_time.hour * 3600 + date_time.min * 60
-      end_test_time = started_test_time + seconds
+    dt = @test_passage.test.timer.to_time
+    started_test = @test_passage.created_at
+    seconds = dt.hour * 3600 + dt.min * 60 + dt.sec
 
-      if DateTime.now <= end_test_time
-        render :json => {:time_left => true}
-      else
-        render :json => {:time_left => false}
-      end
-    end
+    render json: { time_left: DateTime.now <= started_test + seconds }
   end
 
   def gist
