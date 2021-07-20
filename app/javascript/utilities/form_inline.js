@@ -1,17 +1,19 @@
 document.addEventListener('turbolinks:load', function () {
-    let controls = document.querySelectorAll('.form-inline-link')
+    if (window.location.pathname === "/admin/tests"){
+        let controls = document.querySelectorAll('.form-inline-link')
 
-    if (controls.length){
-        for (let i = 0; i < controls.length; i++) {
-            controls[i].addEventListener('click', formInlineLinkHandler)
+        if (controls.length){
+            for (let i = 0; i < controls.length; i++) {
+                controls[i].addEventListener('click', formInlineLinkHandler)
+            }
         }
-    }
 
-    let errors = document.querySelector('.resource-errors')
+        let errors = document.querySelector('.resource-errors')
 
-    if (errors) {
-        let resourceId = errors.dataset.resourceId
-        formInlineHandler(resourceId)
+        if (errors) {
+            let resourceId = errors.dataset.resourceId
+            formInlineHandler(resourceId)
+        }
     }
 })
 
