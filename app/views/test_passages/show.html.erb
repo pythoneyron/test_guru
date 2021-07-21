@@ -10,9 +10,8 @@
 
   <div id="time-test">
     Время выполнения теста:
-    <div id="timer"
-         data-timer="<%= @test_passage.test.timer_on_seconds %>"
-         data-result="<%= url_for result_test_passage_url %>">
+    <div id="timer" data-timer="<%= @test_passage.test.timer_on_seconds %>">
+      <%= @test_passage.test.timer_on_seconds %>
     </div>
   </div>
 

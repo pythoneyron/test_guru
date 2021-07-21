@@ -4,6 +4,6 @@
   <td class="id"><%= test.author_id %></td>
   <td class="id"><%= test.level %></td>
   <td class="id"><%= test.questions.count %></td>
-  <td class="id align-middle"><%= test.timer ? test.timer.strftime("%H:%M:%S") : "--:--"  %></td>
+  <td class="id align-middle"><%= display_timer(test) %></td>
   <td class="id"><%= button_to t('.start_test'), start_test_path(test) %></td>
 </tr>

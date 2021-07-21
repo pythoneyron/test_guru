@@ -1,16 +1,15 @@
 document.addEventListener('turbolinks:load', function () {
     let timerData = document.getElementById("timer")
     if (timerData) {
-        let urlResult = timerData.dataset.result
         let timer = timerData.dataset.timer
 
         if (timer){
-            startTimer(timer, urlResult);
+            startTimer(timer);
         }
     }
 })
 
-function startTimer(timer, urlResult) {
+function startTimer(timer) {
     let timePassed = 0;
     let timeLeft = timer;
 
@@ -22,8 +21,7 @@ function startTimer(timer, urlResult) {
 
         if (!timeLeft) {
             clearInterval(timerInterval);
-            alert('Время вышло! Тест завершен!')
-            location.href = urlResult
+            document.getElementById("submit-form").click()
         }
 
         // Обновление оставшегося времени
