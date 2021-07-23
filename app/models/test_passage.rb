@@ -32,6 +32,13 @@ class TestPassage < ApplicationRecord
     percentage_result >= SUCCESS_RATE_PERCENT
   end
 
+  def time_is_left?
+    return unless test.timer
+
+    seconds = test.timer_on_seconds
+    DateTime.now <= self.created_at + seconds
+  end
+
   private
 
   def before_validation_set_first_question

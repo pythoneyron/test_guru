@@ -1,3 +1,5 @@
+require 'date'
+
 class Test < ApplicationRecord
   has_many :test_passages
   has_many :users, through: :test_passages
@@ -23,4 +25,11 @@ class Test < ApplicationRecord
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { greater_than_or_equal_to: 1 }
+
+  def timer_on_seconds
+    if timer
+      dt = timer.to_time
+      dt.hour * 3600 + dt.min * 60 + dt.sec
+    end
+  end
 end

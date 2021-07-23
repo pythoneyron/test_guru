@@ -3,11 +3,9 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[ show result update gist ]
 
-  def show
-  end
+  def show; end
 
-  def result
-  end
+  def result; end
 
   def gist
     gist_obj = GistQuestionService.new(@test_passage.current_question)
@@ -28,23 +26,26 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed?
-      @test_passage.update(success: true) if @test_passage.success?
-
-      TestsMailer.completed_test(@test_passage).deliver_now
-
-      TestPassageService.new(@test_passage).call_set_badges if @test_passage.success?
-
-      redirect_to result_test_passage_path(@test_passage)
-    else
-      render :show
+    if @test_passage.completed? || !@test_passage.time_is_left?
+      flash.notice = 'Время вышло, тест завершен.' unless @test_passage.time_is_left?
+      send_email_set_badge_and_result
+      redirect_to result_test_passage_path(@test_passage) and return
     end
+
+    render :show
   end
 
   private
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def send_email_set_badge_and_result
+    @test_passage.update(success: true) if @test_passage.success?
+
+    TestsMailer.completed_test(@test_passage).deliver_now
+    TestPassageService.new(@test_passage).call_set_badges if @test_passage.success?
   end
 
 end

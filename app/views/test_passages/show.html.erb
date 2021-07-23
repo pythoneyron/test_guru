@@ -8,6 +8,13 @@
     <div id="progress-bar">0%</div>
   </div>
 
+  <div id="time-test">
+    Время выполнения теста:
+    <div id="timer" data-timer="<%= @test_passage.test.timer_on_seconds %>">
+      <%= @test_passage.test.timer_on_seconds %>
+    </div>
+  </div>
+
   <a class="count-questions" data-count-questions="<%= @test_passage.count_questions %>">
     Текущий тест: <%= @test_passage.count_questions %>
   </a>
